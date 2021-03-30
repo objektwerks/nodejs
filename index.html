@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MadMax</title>
+    <meta http-Equiv="Cache-Control" Content="no-cache">
+    <meta http-Equiv="Pragma" Content="no-cache">
+    <meta http-Equiv="Expires" Content="0">
+    <link type="text/css" rel="stylesheet" href="css/client.css"/>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.16.css"/>
+    <link type="text/css" rel="stylesheet" href="skin/ui.dynatree.css"/>
+    <script type="text/javascript" src="lib/socket.io.client.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="lib/jquery-ui-1.8.16.js"></script>
+    <script type="text/javascript" src="lib/jquery.templates.js"></script>
+    <script type="text/javascript" src="lib/jquery.dynatree.js"></script>
+    <script type="text/javascript" src="script/client/selector.builder.js"></script>
+    <script type="text/javascript" src="script/shared/common.js"></script>
+    <script type="text/javascript" src="script/shared/message.factory.js"></script>
+    <script type="text/javascript" src="script/client/client.js"></script>
+</head>
+<body>
+<div id="page">
+    <header id="header">
+        <img src="image/madx.png"/>
+        <img id="progress-image" src="image/progress.gif"/>
+        <img id="disconnect-connect-image" src="image/disconnect.png"/>
+    </header>
+    <section id="query-tabs">
+        <div id="query-tabs-button-panel">
+            <label for="query-search-autocomplete">Search: <input id="query-search-autocomplete" title="Refresh [ctrl-r]"/></label>
+            <button id="query-search" class="icon-button" title="Find Query"></button>
+            <button id="query-new" class="icon-button" title="New Query"></button>
+            <button id="query-save" class="icon-button" title="Save Query"></button>
+            <button id="query-refresh" class="icon-button" title="Refresh Query"></button>
+            <button id="query-tab-expand-contract" class="icon-button" title="Expand Tab"></button>
+        </div>
+        <ul>
+            <li><a href="#html-tab"> Html </a></li>
+            <li><a href="#html-tree-tab"> Tree </a></li>
+            <li><a href="#html-source-tab"> Source </a></li>
+            <li><a href="#template-tab"> Template </a></li>
+        </ul>
+        <div id="html-tab" class="tab">
+            <table id="query-panel">
+                <td width="25%">
+                    <label for="query-name">Query: <input id="query-name" type="text" spellcheck="false" readonly/></label>
+                </td>
+                <td width="75%">
+                    <label for="query-url">Url: <input id="query-url" type="text" title="Load [enter]" spellcheck="false" readonly/></label>
+                </td>
+            </table>
+            <div id="html-selector-panel">
+                <label id="html-selector-types" class="radio-separator" for="html-selector">Selector:
+                    <label>Class<input name='html-selector-type' type='radio' value="class" checked/></label>
+                    <label>Id<input name='html-selector-type' type='radio' value="id"/></label>
+                    <label>Id and Class<input name='html-selector-type' type='radio' value="id-class"/></label>
+                    <label>Element<input name='html-selector-type' type='radio' value="element"/></label>
+                </label>
+                <textarea id="html-selector" class="inherit-background-border" spellcheck="false" readonly></textarea>
+            </div>
+            <label>Page:</label>
+            <iframe id="html" class="inherit-background-border" seamless="seamless" sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts"></iframe>
+        </div>
+        <div id="html-tree-tab" class="tab">
+            <div id="html-tree-selector-panel">
+                <label id="html-tree-selector-types" class="radio-separator" for="html-tree-selector">Selector:
+                    <label>Class<input name='html-tree-selector-type' type='radio' value="class" checked/></label>
+                    <label>Id<input name='html-tree-selector-type' type='radio' value="id"/></label>
+                    <label>Id and Class<input name='html-tree-selector-type' type='radio' value="id-class"/></label>
+                    <label>Element<input name='html-tree-selector-type' type='radio' value="element"/></label>
+                    <textarea id="html-tree-selector" class="inherit-background-border" spellcheck="false" readonly></textarea>
+                </label>
+            </div>
+            <label for="html-tree">Html Tree:<div id="html-tree" class="inherit-background-border scrollable"></div></label>
+        </div>
+        <div id="html-source-tab" class="tab">
+            <div id="html-source-accordion">
+                <h3>Source</h3>
+                <div class="accordion"><textarea id="html-source" class="inherit-background-border" spellcheck="false" readonly></textarea></div>
+                <h3>Css</h3>
+                <div class="accordion">
+                    <label for="css-list">Links:<select id="css-list" class="inherit-background-border" size="5"></select></label>
+                    <label for="css-source">Source:<textarea id="css-source" class="inherit-background-border" spellcheck="false" readonly></textarea></label>
+                </div>
+                <h3>Js</h3>
+                <div class="accordion">
+                    <label for="js-list">Scripts:<select id="js-list" class="inherit-background-border" size="5"></select></label>
+                    <label for="js-source">Source:<textarea id="js-source" class="inherit-background-border" spellcheck="false" readonly></textarea></label>
+                </div>
+            </div>
+        </div>
+        <div id="template-tab" class="tab">
+            <label for="template-url">Url: <input id="template-url" type="text" title="Load [enter | return]" spellcheck="false"/></label>
+            <button id="template-render" class="icon-button" title="Render Template"></button><br/>
+            <label for="template-view">Template:<div id="template-view" class="scrollable"></div></label>
+        </div>
+    </section>
+    <section id="selector-tabs">
+        <div id="selector-tabs-button-panel">
+            <button id="query-execute" class="icon-button" title="Execute Query"></button>
+            <button id="selector-expand-contract" class="icon-button" title="Show SubSelectors"></button>
+        </div>
+        <ul>
+            <li><a href="#selector-tab"> Selector </a></li>
+            <li><a href="#head-tab"> Head </a></li>
+            <li><a href="#executor-tab"> Executor </a></li>
+        </ul>
+        <div id="selector-tab" class="tab">
+            <div id="selector-button-panel">
+                <button id="selector-remove" class="selector-icon-button" title="Remove Selector"></button>
+                <button id="selector-execute" class="selector-icon-button" title="Execute Selector"></button>
+            </div>
+            <div id="selector-panel">
+                <label for="selector-result">Result: <textarea id="selector-result" class="inherit-background-border" spellcheck="false" readonly></textarea></label>
+                <label for="selector-name">Name: <input id="selector-name" type="text" spellcheck="false" title="Save [ctrl-s]"></label>
+                <label for="selector">Selector: <textarea id="selector" spellcheck="false" title="Save and Execute [ctrl-s]"></textarea></label>
+                <label for="selector-tree">Selectors:<div id="selector-tree" class="inherit-background-border scrollable"></div></label>
+            </div>
+        </div>
+        <div id="head-tab" class="tab">
+            <div>
+                <button id="head-copy" class="icon-button" title="Copy Source Head"></button>
+            </div>
+            <label for="head">Head:<textarea id="head" class="inherit-background-border" spellcheck="false"></textarea></label>
+        </div>
+        <div id="executor-tab" class="tab">
+            <div id="executor-accordion">
+                <h3>Response</h3>
+                <div class="accordion"><textarea id="executor-response" class="inherit-background-border" readonly></textarea></div>
+                <h3>View</h3>
+                <div class="accordion"><iframe id="view" class="inherit-background-border" seamless="seamless" sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts"></iframe></div>
+                <h3>Source</h3>
+                <div class="accordion"><textarea id="view-source" class="inherit-background-border" spellcheck="false" readonly></textarea></div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <label>&copy;2011 Mad Mobile, All rights reserved.</label>
+        <a id="help" href="help.html" target="_blank">Help</a>
+    </footer>
+</div>
+<div id="query-search-dialog" title="Search" hidden="true">
+    <form>
+        <h3 class="dialog-pane">Select query:</h3>
+        <select id="query-name-list" size="22"></select>
+    </form>
+</div>
+<div id="query-new-dialog" title="New Query" hidden="true">
+    <form>
+        <p class="dialog-pane">
+            <label for="query-new-name">Query: <input id="query-new-name" type="text"/></label>
+        </p>
+        <p class="dialog-pane">
+            <label for="query-new-url">Url: <input id="query-new-url" type="text"/></label>
+        </p>
+    </form>
+</div>
+<div id="selector-remove-dialog" title="Remove Selector" hidden="true">
+    <p class="dialog-pane">
+        Please, confirm you wish to delete this Selector.
+    </p>
+</div>
+<div id="selector-add-replace-dialog" title="Select By" hidden="true">
+    <label for="current-selector-name">Name: <input id="current-selector-name" type="text" spellcheck="false"></label>
+    <label for="current-selector-node">Node: <input id="current-selector-node" class="inherit-background-border" type="text" spellcheck="false" readonly></label>
+    <label for="current-selector">Selector:<textarea id="current-selector" class="inherit-background-border" spellcheck="false" readonly></textarea></label>
+</div>
+<div id="log-dialog" title="Log" hidden="true">
+    <p id="log-message" class="dialog-pane"></p>
+    <p id="log-code" class="dialog-pane"></p>
+    <p id="log-error" class="dialog-pane"></p>
+</div>
+<iframe id="template" class="inherit-background-border" seamless="seamless" sandbox="allow-same-origin allow-top-navigation allow-forms allow-scripts" hidden="true"></iframe>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<script id="template-list" type="text/x-jquery-tmpl">
+    {{each(i, name) objects}}
+        <ul>
+            <li>${name}</li>
+            <ul>
+            {{each(j, value) values}}
+                {{if value.indexOf('gif') > -1 || value.indexOf('jpg') > -1 || value.indexOf('png') > -1}}
+                    <li><img src='${value}'/></li>
+                {{else}}
+                    <li>${value}</li>
+                {{/if}}
+            {{/each}}
+            </ul>
+            {{each(k, name) properties}}
+                <ul>
+                    <li>${name}</li>
+                    <ul>
+                    {{each(l, value) values}}
+                        {{if value.indexOf('gif') > -1 || value.indexOf('jpg') > -1 || value.indexOf('png') > -1}}
+                            <li><img src='${value}'/></li>
+                        {{else}}
+                            <li>${value}</li>
+                        {{/if}}
+                    {{/each}}
+                    </ul>
+                </ul>
+            {{/each}}
+        </ul>
+    {{/each}}
+</script>

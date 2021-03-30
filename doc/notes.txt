@@ -1,0 +1,47 @@
+Todo
+----
+Validate queries aperiodically.
+
+Notes
+-----
+We're currently screen scraping, but only using data, not html.
+Transcoding is the process of screen scraping html, restyling and reusing it.
+Search and shopping cart behavior is a huge challenge.
+
+Workflow
+--------
+1. [Browse]  Browse candidate product list or product detail urls.
+2. [Select]  Select product list url and items.
+3. [Select]  Select a product detail url and item.
+4. [Execute] Execute query.
+
+Broadcasting
+------------
+(function() {
+    setInterval(function () {
+        if (manager) {
+            manager.sockets.emit('message', new Date().toLocaleString());
+        }
+    }, 60000);
+})();
+
+Schema
+------
+var SubSelectorSchema = new Schema({
+    name       : { type : String },
+    selector   : { type : String }
+});
+
+var SelectorSchema = new Schema({
+    name         : { type : String },
+    selector     : { type : String },
+    subselectors : [SubSelectorSchema]
+});
+
+var QuerySchema = new Schema({
+    name      : { type : String, unique: true },
+    url       : { type : String },
+    selectors : [SelectorSchema],
+    head      : { type : String },
+    template  : { type : String }
+});

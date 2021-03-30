@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MadMax Testing</title>
+    <meta http-Equiv="Cache-Control" Content="no-cache">
+    <meta http-Equiv="Pragma" Content="no-cache">
+    <meta http-Equiv="Expires" Content="0">
+    <link type="text/css" rel="stylesheet" href="test.css"/>
+</head>
+<body>
+<div>
+    <header>
+        <h1>MaxMax Testing</h1>
+    </header>
+    <hr/>
+    <div>
+        <h3>Pass: 42%</h3>
+        <table border="0" cellpadding="8" style="align: left; text-align: left">
+            <tbody>
+                <tr>
+                    <th width="10%">Site</th>
+                    <th width="20%">Queries</th>
+                    <th width="5%">Status*</th>
+                    <th width="65%">Remarks</th>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://claires.com">Claire's</a></td>
+                    <td>claire's boot list, claire's boot detail</td>
+                    <td>Fail</td>
+                    <td>Visual selector locks on entire page.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://bagborrowsteal.com">Bag Borrow Steal</a></td>
+                    <td>bagborrowsteal sunglass list</td>
+                    <td>Fail</td>
+                    <td>Can't load page - jsdom html parsing error.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://kansascitysteaks.com">Kansas City Steaks</a></td>
+                    <td>kc filet list</td>
+                    <td>Fail</td>
+                    <td>Page displayed incorrectly. Can't create selectors. Detail is a popup.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://officefurniture.com">Office Furniture</a></td>
+                    <td>office furniture chair list, office furniture chair detail</td>
+                    <td>Fail</td>
+                    <td>Can't select images.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://1800petmeds.com">1800 Pet Meds</a></td>
+                    <td>pet meds treat list, pet meds treat detail</td>
+                    <td>Pass</td>
+                    <td>Flitering required.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://pier1.com">Pier 1</a></td>
+                    <td>pier 1 candle list, pier 1 candle detail</td>
+                    <td>Pass</td>
+                    <td>Filtering required.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://roadrunnersports.com">Road Runner Sports</a></td>
+                    <td>road runner shoe list, road runner shoe detail</td>
+                    <td>Pass</td>
+                    <td>Filtering required.</td>
+                </tr>
+                <tr>
+                     <td><a target="_blank" href="http://ronjonsurfshop.com">Ron Jon Surf Shop</a></td>
+                     <td>ron jon sandal list, ron jon sandal detail</td>
+                     <td>Pass</td>
+                     <td>Filtering required.</td>
+                 </tr>
+                <tr>
+                    <td><a target="_blank" href="http://sallybeauty.com">Sally Beauty</a></td>
+                    <td>sally beauty shampoo list, sally beauty shampoo detail</td>
+                    <td>Pass</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://sleepnumber.com">Sleep Number</a></td>
+                    <td>sleep number list, sleep number detail</td>
+                    <td>Fail</td>
+                    <td>Selected list images. Kills visual selector.</td>
+                </tr>
+                 <tr>
+                    <td><a target="_blank" href="http://sportschalet.com">Sports Chalet</a></td>
+                    <td>sports chalet shoe list, sports chalet shoe detail</td>
+                     <td>Fail</td>
+                    <td>Pages displayed incorrectly. Created selectors, though.</td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" href="http://toshiba.com">Toshiba</a></td>
+                    <td>toshiba tablet list, toshiba tablet detail</td>
+                    <td>Fail</td>
+                    <td>Created selectors. Popups kill visual selector.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>*  How to grade a complex topic?</h3>
+        <h3>** MadMax Server -> FATAL ERROR: JS Allocation failed - process out of memory.</h3>
+    </div>
+    <hr/>
+    <footer>
+        <h3>Test it!</h3>
+    </footer>
+</div>
+</body>
+</html>

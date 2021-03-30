@@ -1,0 +1,35 @@
+article, aside, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+header, footer {
+    margin: 0px auto;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size : 10pt;
+    font-family : helvetica;
+    background-color : white;
+    color : navy
+}
+
+body {
+    font-size : 10pt;
+    font-family : helvetica;
+    background-color : white;
+    color: navy
+}
+
+div, p, table, ol, ul, li, em {
+    font-size : 10pt;
+    font-family : helvetica;
+    background-color : white;
+    color : navy
+}
+
+input, textarea, select {
+    font-size : 10pt;
+    font-family : helvetica;
+    color : navy
+}

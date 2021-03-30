@@ -1,0 +1,306 @@
+article, aside, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, body, div, label, p, input, table, textarea, select, ol, ul, li {
+    font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
+    font-size: 12px;
+    color : navy
+}
+
+p {
+    text-align: left
+}
+
+#page {
+    height: 100%;
+}
+
+#header {
+    background-color: #FF9900;
+}
+
+#footer {
+    clear: both;
+}
+
+#app-name {
+    font-size: 19px;
+}
+
+#disconnect-connect-image {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+}
+
+#progress-image {
+    position: absolute;
+    right: 44px;
+    top: 50px;
+}
+
+#help {
+    position: absolute;
+    right: 9px;
+}
+
+#query-search-autocomplete {
+    height: 17px;
+    width: 225px;
+    vertical-align: middle;
+}
+
+#query-new-name {
+    width: 86%;
+}
+
+#query-new-url {
+    width: 90%;
+}
+
+#query-name-list {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.dialog-pane {
+    background: inherit;
+}
+
+.ui-dialog, ui-dialog-content, .ui-dialog-buttonpane, .ui-dialog-buttonset {
+    background: inherit;
+}
+
+.icon-button, .selector-icon-button {
+    background: inherit;
+    border: inherit;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.ui-button-icon-primary img {
+    vertical-align: middle;
+}
+
+.inherit-background-border {
+    background: inherit;
+    border: inherit;
+}
+
+.tab {
+    height: 900px;
+}
+
+.accordion {
+    height: 825px;
+}
+
+#query-tabs {
+    float: left;
+    width: 69%;
+}
+
+#current-selector-node {
+    margin: 3px;
+    width: 100%;
+}
+
+#current-selector-name {
+    margin: 3px;
+    width: 100%;
+}
+
+#current-selector {
+    margin:  3px;
+    width: 100%;
+    height: 68%;
+    resize: none;
+}
+
+#query-panel {
+    margin: 3px;
+    width: 100%
+}
+
+#query-name {
+    background: #deedf7;
+    width: 97%;
+}
+
+#query-url {
+    background: #deedf7;
+    width: 100%;
+}
+
+.radio-separator label {
+    margin: 10px;
+}
+
+#html-selector-panel {
+    margin: 3px;
+    width: 100%;
+}
+
+#html-selector {
+    padding: 1px 1px 1px 1px;
+    width: inherit;
+    height: 20%;
+    resize: none;
+}
+
+#html {
+    height: 87%;
+    width: 100.5%;
+}
+
+#html-tree-selector-panel {
+    margin: 3px;
+    width: 100%;
+}
+
+#html-tree-selector {
+    width: 100%;
+    resize: none;
+}
+
+#html-tree {
+    width: 100%;
+    height: 92%;
+}
+
+#html-source {
+    margin: 3px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+#css-list {
+    margin: 3px;
+    width: 100%;
+    height: 10%;
+    overflow: auto;
+}
+
+#css-source {
+    margin: 3px;
+    width: 100%;
+    height: 86%;
+    resize: none;
+}
+
+#js-list {
+    margin: 3px;
+    width: 100%;
+    height: 10%;
+    overflow: auto;
+}
+
+#js-source {
+    margin: 3px;
+    width: 100%;
+    height: 86%;
+    resize: none;
+}
+
+#template-url {
+    margin: 3px;
+    width: 50%;
+    height: 2%;
+}
+
+#template-view {
+    margin:  6px;
+    width: 100%;
+    height: 95%;
+}
+
+#query-tabs-button-panel {
+    margin:  3px;
+    position: absolute;
+    right: 3px;
+}
+
+#selector-tabs {
+    float: right;
+    width: 30%;
+}
+
+#selector-result {
+    margin:  3px;
+    width: 100%;
+    height: 48%;
+    resize: none;
+}
+
+#selector-name {
+    margin:  3px;
+    width: 100%;
+    height: 2%;
+}
+
+#selector {
+    margin:  3px;
+    background: white;
+    width: 100%;
+    height: 10%;
+    resize: none;
+}
+
+#selector-tree {
+    margin:  3px;
+    width: 100%;
+    height: 26%;
+}
+
+#selector-tabs-button-panel {
+    margin:  3px;
+    position: absolute;
+    right: 3px;
+}
+
+#selector-button-panel {
+    margin:  3px;
+}
+
+#head {
+    background: white;
+    width: 100%;
+    height: 95%;
+    resize: none;
+}
+
+#head-copy {
+    margin: 3px;
+}
+
+#executor-response {
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
+
+#selector-panel {
+    width: 100%;
+    height: 100%;
+}
+
+.scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#view {
+    width: 100%;
+    height: 100%;
+}
+
+#view-source {
+    margin: 3px;
+    width: 100%;
+    height: 100%;
+    resize: none;
+}
